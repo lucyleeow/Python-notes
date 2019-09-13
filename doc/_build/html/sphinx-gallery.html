@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sphinx-Gallery &mdash; Python notes 0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Python" href="auto_examples/plot_python.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python notes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Python notes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Python notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sphinx-Gallery:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx-Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#file-structure-and-setup">File structure and setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples-folder">Examples folder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-and-use-sphinx-gallery">Configure and use Sphinx-Gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-documentation">Building the documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python notes</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Sphinx-Gallery</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sphinx-gallery.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sphinx-gallery">
+<h1>Sphinx-Gallery<a class="headerlink" href="#sphinx-gallery" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="file-structure-and-setup">
+<h2>File structure and setup<a class="headerlink" href="#file-structure-and-setup" title="Permalink to this headline">¶</a></h2>
+<p>An example file structure for your project
+(<a class="reference external" href="https://sphinx-gallery.github.io/getting_started.html">ref</a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── doc
+│   ├── conf.py
+│   ├── index.rst
+|   ├── make.bat
+│   └── Makefile
+├── my_python_module
+│   ├── __init__.py
+│   └── mod.py
+└── examples
+    ├── plot_example.py
+    ├── example.py
+    └── README.txt (or .rst)
+</pre></div>
+</div>
+<ul>
+<li><p>The ‘doc’ directory is the ‘source directory’ for Sphinx, containing both the
+<code class="docutils literal notranslate"><span class="pre">.rst</span></code> source documents and configuration related files.
+<code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> can be used to set up your source directoy. It creates
+default versions of the essential files
+(see <a class="reference external" href="http://www.sphinx-doc.org/en/stable/usage/quickstart.html">ref</a> for
+more details). Four files are created after running <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, which allows you to configure all aspects of how Sphinx and
+Sphinx-Gallery reads your sources and builds your documentation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index.rst</span></code> is the ‘master document’, which serves as a welcome page
+and contains the root of the table of contents tree (‘toctree’).</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> (for Unix based OSs) and <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> (for Windows OS)
+allows you to build your docs easily by executing the ‘make’ command with
+the name of the builder e.g. <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>. The default source directory
+is
+set to the current working directory and the default build directory
+(where the output files are saved) is ‘_build’. These can be
+changed by amending the appropriate ‘make’ file for your OS.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>‘examples’ contains the <code class="docutils literal notranslate"><span class="pre">.py</span></code> files used by Sphinx-Gallery to build
+both rST and documentation files. The rST files will be saved to a file
+specified in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file (see below). An <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> will be
+created in the root directory of this specified file. The documentation files
+will be stored in the build directory (‘_build’ by default).</p></li>
+<li><p>‘my_python_module’ contains the <code class="docutils literal notranslate"><span class="pre">.py</span></code> scripts for your Python module.
+This directory is not required and Sphinx-Gallery can be used for a variety of
+purposes outside of documenting examples for a package, for example creating a
+website for a Python tutorial.</p></li>
+</ul>
+<div class="section" id="examples-folder">
+<h3>Examples folder<a class="headerlink" href="#examples-folder" title="Permalink to this headline">¶</a></h3>
+<p>This fold must have:</p>
+<ul>
+<li><p>A file either called <code class="docutils literal notranslate"><span class="pre">README.txt</span></code> or <code class="docutils literal notranslate"><span class="pre">README.rst</span></code>. This file must contain
+rST and will be used as a header for the gallery generated from this folder.
+It must have at least a title, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">gallery</span>
+<span class="o">===================</span>
+
+<span class="n">Below</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">gallery</span> <span class="n">of</span> <span class="n">examples</span>
+</pre></div>
+</div>
+</li>
+<li><p>Example Python scripts. These scripts will be processed when building your
+documentation. By default, files prefixed with <code class="docutils literal notranslate"><span class="pre">plot_</span></code> will be
+executed and their outputs captured to incorporate them in the documentation
+files generated. Files without this prefix will only be parsed and presented
+without any output. You can change this default pattern matching in the
+<code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="configure-and-use-sphinx-gallery">
+<h2>Configure and use Sphinx-Gallery<a class="headerlink" href="#configure-and-use-sphinx-gallery" title="Permalink to this headline">¶</a></h2>
+<p>After installing Sphinx-Gallery, we must enable and configure it to build with
+Sphinx.</p>
+<p>First, enable Sphinx-Gallery in the Sphinx conf.py file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;sphinx_gallery.gen_gallery&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>This loads Sphinx-Gallery as one of your extensions, the ellipsis <code class="docutils literal notranslate"><span class="pre">...</span></code>
+represents your other loaded extensions.</p>
+<p>Now we need to tell Sphinx-Gallery which folder the example <code class="docutils literal notranslate"><span class="pre">.py</span></code> scripts
+are and which folder the generated rST files should go. These paths should
+be given relative to the source directory (‘docs’ in our example case):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx_gallery_conf</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;examples_dirs&#39;</span><span class="p">:</span> <span class="s1">&#39;../examples&#39;</span><span class="p">,</span>   <span class="c1"># path to your example scripts</span>
+    <span class="s1">&#39;gallery_dirs&#39;</span><span class="p">:</span> <span class="s1">&#39;auto_examples&#39;</span><span class="p">,</span>  <span class="c1"># path where to save gallery generated examples</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After building your documentation, the ‘gallery_dirs’,
+‘auto_examples’ in our example case, will contain the all the <code class="docutils literal notranslate"><span class="pre">.rst</span></code>
+files generated by Sphinx-Gallery - this includes an <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file for
+each gallery and an <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file for each <code class="docutils literal notranslate"><span class="pre">.py</span></code> script in the
+‘examples_dirs`, ‘../examples’ in this case.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<p>Files from your <code class="docutils literal notranslate"><span class="pre">examples</span></code> folder can be added to the toctree directive in
+the <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file by providing the path to the rST files in the</p>
+</div>
+<div class="section" id="building-the-documentation">
+<h2>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>To build your documentaton, execute the ‘make’ command with the name of the
+builder, commonly this will be <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>, in the source
+directory (<code class="docutils literal notranslate"><span class="pre">docs</span></code> in our example case). This will:</p>
+<ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files in the source directory to build documentation (e.g.
+HTML) files and save these to the build directory (‘./_build’ by default).</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">.py</span></code> files in your ‘examples_dirs’ (<code class="docutils literal notranslate"><span class="pre">../examples</span></code> in our example
+case)’ to build <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, saving these to ‘gallery_dirs’
+(‘auto_examples’ in our example case) and build documentation (e.g. HTML)
+files and save these to the build directory (‘./_build’ by default).</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="auto_examples/plot_python.html" class="btn btn-neutral float-left" title="Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Lucy Liu
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

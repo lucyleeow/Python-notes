@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python &mdash; Python notes 0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sphinx-Gallery" href="../sphinx-gallery.html" />
+    <link rel="prev" title="Numpy" href="plot_numpy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python notes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Python notes:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plot_matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_numpy.html">Numpy</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#magic-functions">Magic functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-types">Data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#containers">Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mutable-vs-immutable">Mutable vs immutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts-and-modules">Scripts and modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main">__main__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys-path">sys.path</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#packages">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-read">Write/Read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#standard-libary">Standard libary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exception-handling">Exception handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Sphinx-Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx-gallery.html">Sphinx-Gallery</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python notes</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Python notes</a> &raquo;</li>
+        
+      <li>Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/auto_examples/plot_python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-python-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="python">
+<span id="sphx-glr-auto-examples-plot-python-py"></span><h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>Python is an interpreted language (c.f. compiled) and can be used
+interactively.</p>
+<div class="section" id="magic-functions">
+<h2>Magic functions<a class="headerlink" href="#magic-functions" title="Permalink to this headline">¶</a></h2>
+<p>These functions are prefixed by <code class="docutils literal notranslate"><span class="pre">%</span></code>. In certain IDE’s the setting
+<code class="docutils literal notranslate"><span class="pre">automagic</span></code> is
+enabled by default and allows you to omit the <code class="docutils literal notranslate"><span class="pre">%</span></code> sign. Useful magic
+functions include <code class="docutils literal notranslate"><span class="pre">timeit</span></code>, which times the execution of short snippets
+using the timeit module from the standard library and <code class="docutils literal notranslate"><span class="pre">debug</span></code>, which allows
+you to enter post-mortem debugging.</p>
+</div>
+<div class="section" id="data-types">
+<h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>numeric</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Integer</p></li>
+<li><p>Float</p></li>
+<li><p>Complex</p></li>
+<li><p>Boolean</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Type conversion is called ‘casting’.</p>
+</div>
+<div class="section" id="containers">
+<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Lists</strong> ordered, can have different types, mutable</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">[-1]</span></code> negative indexing = count from the back</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[start:stop:step]</span></code> slicing syntax</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list1</span> <span class="pre">=</span> <span class="pre">list(list2)</span></code> creates a new object that is in a different
+memory area</p></li>
+</ul>
+</li>
+<li><p><strong>Strings</strong> immutable, accessible via indexing just like lists</p>
+<ul>
+<li><p>string formatting:</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="s1">&#39;An integer: </span><span class="si">%i</span><span class="s1">; a float: </span><span class="si">%f</span><span class="s1">; another string: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>An integer: 1; a float: 0.100000; another string: string
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Dictionary</strong> unordered, maps keys to values</p></li>
+<li><p><strong>Tuple</strong> immutable list.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="c1"># both ways to create tuple</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mutable-vs-immutable">
+<h2>Mutable vs immutable<a class="headerlink" href="#mutable-vs-immutable" title="Permalink to this headline">¶</a></h2>
+<p><strong>Immutable</strong>: string, tuple, int, float, boolean
+Cannot be altered in place.</p>
+<p><strong>Mutable</strong>: list, dictionary, set
+Can be altered in place.</p>
+<p>You can think of a variable as a name ‘bound’ to an object. One object
+can have several ‘names’. You can check this with the <code class="docutils literal notranslate"><span class="pre">id()</span></code> function
+which returns the memory location of where the variable is stored.
+You can also check if two objects have the same ID by using the <code class="docutils literal notranslate"><span class="pre">is</span></code>
+function. If two ‘variables’ are point to the same object, changing one
+variable, changes the other variable pointint to that object.</p>
+<p>Creating two strings with the same value will result in the two variables
+pointing to the same object. This is to economise memory usable as these
+objects are immutable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string1</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="n">string2</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">string1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">string2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>139842330542576
+139842330542576
+</pre></div>
+</div>
+<p>Strings cannot be changed in place. Altering one of these strings results
+in Python creating a new string object at a different location in memory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string1</span> <span class="o">+=</span> <span class="s2">&quot;e&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">string1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>139842330645232
+</pre></div>
+</div>
+<p>Integers will appear to act the same way but this is for a different reason.
+To economise memory usage, CPython pre-allocates the first 262 integers on
+start up. This means that the numbers -5 to 256 (inclusive) are automatically
+bound to certain addresses in memory. CPython stores references to all of
+these integer objects in an array. When we ‘create’ an integer object, we
+are just telling our variable to point to an address stored in that array.
+These numbers are choosen as they are the most commonly used numbers.
+For some reason this does not seem to work with sphinx?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num1</span> <span class="ow">is</span> <span class="n">num2</span><span class="p">)</span>
+
+<span class="n">num3</span> <span class="o">=</span> <span class="mf">1e1000</span>
+<span class="n">num4</span> <span class="o">=</span> <span class="mf">1e1000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num3</span> <span class="ow">is</span> <span class="n">num4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>True
+True
+</pre></div>
+</div>
+<p>A list is an array of pointers, which point to each element in the list. The
+values in the list are not stored in continuous place in memory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">id</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">id</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>139842330570656
+94790694064928 94790694064960 94790694064992
+</pre></div>
+</div>
+<p>When you change a list, the location of the list (array of pointers)
+does not change but the id of the values changes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">id</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">id</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>139842330570656
+94790694064864 94790694064960 94790694064992
+</pre></div>
+</div>
+<p>This influences when a variable is modified inside a function. There are two
+ways that arguments (given when calling a function) from a function are
+passed to the parameters (which exist inside functions) of the function
+(<a class="reference external" href="https://www.python-course.eu/python3_passing_arguments.php">ref</a>).</p>
+<ul class="simple">
+<li><p><strong>call/pass by value</strong> - the argument expression (e.g. <code class="docutils literal notranslate"><span class="pre">x=2</span></code>) is
+evaluated. If the expression is a variable (e.g. <code class="docutils literal notranslate"><span class="pre">x=var1</span></code>) its value will
+assigned (copied) to the corresponding parameter. This ensures that the
+‘global’ variable will not be changed.</p></li>
+<li><p><strong>call/pass by reference</strong> - the function gets a reference to the argument,
+rather than a copy of its value. The function can then modify the variable.
+This saves computation time and memory space as arguments do not need to be
+copied but variables can be ‘mistakenly’ changed in a function call.</p></li>
+</ul>
+<p>Python uses a mechanism known as ‘call by object’ or ‘call by object
+reference’. If you pass an immutable argument, the object reference is
+passed to the function parameters and they cannot be changed in a
+function call, as they cannot be changed at all. If a mutable object is passed
+they can be changed in place in the function. If you pass a mutable argument
+function.</p>
+<p>Below is example of an immutable object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">ref_demo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x=&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s2">&quot; id=&quot;</span><span class="p">,</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">42</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x=&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s2">&quot; id=&quot;</span><span class="p">,</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">ref_demo</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>94790694065024
+x= 4  id= 94790694065024
+x= 42  id= 94790694066240
+</pre></div>
+</div>
+<p>Example of a mutable object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">side_effects</span><span class="p">(</span><span class="n">cities</span><span class="p">):</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="p">)</span>
+     <span class="n">cities</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;Birmingham&quot;</span><span class="p">,</span> <span class="s2">&quot;Bradford&quot;</span><span class="p">]</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="p">)</span>
+
+<span class="n">locations</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="s2">&quot;Leeds&quot;</span><span class="p">,</span> <span class="s2">&quot;Glasgow&quot;</span><span class="p">]</span>
+<span class="n">side_effects</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global:&quot;</span><span class="p">,</span> <span class="n">locations</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;London&#39;, &#39;Leeds&#39;, &#39;Glasgow&#39;]
+[&#39;London&#39;, &#39;Leeds&#39;, &#39;Glasgow&#39;, &#39;Birmingham&#39;, &#39;Bradford&#39;]
+Global: [&#39;London&#39;, &#39;Leeds&#39;, &#39;Glasgow&#39;, &#39;Birmingham&#39;, &#39;Bradford&#39;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>When defining a function with a variable number of parameters you can use:
+<code class="docutils literal notranslate"><span class="pre">*args</span></code> (any number of positional arguments packed into a tuple) and
+<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> (any number of key word arguments packed into a dictionary).</p>
+<p>Functions are objects meaning that they can:</p>
+<ul class="simple">
+<li><p>be assigned to a variable</p></li>
+<li><p>an element in a list, or any data structure</p></li>
+<li><p>passed as an argument to another function</p></li>
+</ul>
+<p>Methods are functions attached to objects.</p>
+</div>
+<div class="section" id="scripts-and-modules">
+<h2>Scripts and modules<a class="headerlink" href="#scripts-and-modules" title="Permalink to this headline">¶</a></h2>
+<p>A python script (<code class="docutils literal notranslate"><span class="pre">.py</span></code> text file) can be executed interactively with
+<code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">&lt;file</span> <span class="pre">name&gt;</span></code> in IPython or <code class="docutils literal notranslate"><span class="pre">execfile</span></code> in plain Python
+interpreter. It can also be run in a terimal with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;file</span> <span class="pre">name&gt;</span></code>.
+Scripts can also take command line arguments. Use: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">sys</span></code> then
+<code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>.</p>
+<p>Modules are a way to organise Python code in a hierarchichal way. It is also
+better way to organise functions that you wish to use in several other
+scripts. A module is
+just a Python script. You can <code class="docutils literal notranslate"><span class="pre">import</span></code> a module, which gives access to all
+objects in that module (script). Modules are chached, such that if you
+modify the module script and import the module again in the same script, you
+will get the old one. One solution is to use <code class="docutils literal notranslate"><span class="pre">reload(&lt;module&gt;)</span></code>.</p>
+<div class="section" id="main">
+<h3>__main__<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h3>
+<p>Ref: <a class="reference external" href="https://www.youtube.com/watch?v=sugvnHA7ElY">CSchafer</a></p>
+<p>Whenever Python runs a file, it sets a number of special variables.
+<code class="docutils literal notranslate"><span class="pre">__name__</span></code> is one of them. When it runs a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file directly,
+<code class="docutils literal notranslate"><span class="pre">__name__</span></code> variable is set to ‘__main__’. When importing a module
+however, the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> variable is set to the name of the file (without
+the extension). When you see the script <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code>,
+it is specifying that the code below the if statement should only be run
+if the script is being run directly (and NOT if it is being imported).</p>
+</div>
+<div class="section" id="sys-path">
+<h3>sys.path<a class="headerlink" href="#sys-path" title="Permalink to this headline">¶</a></h3>
+<p>Python looks for modules to import in a number of directories dictated by
+the list of directories in the <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> variable. This list consists of
+installation dependent default paths as well as directories specified by the
+environment variable <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>.</p>
+</div>
+</div>
+<div class="section" id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<p>Package is a directory containing many modules. A special file named
+‘__init__.py’ tells python that the directory is a package from which
+modules can be imported.</p>
+</div>
+<div class="section" id="write-read">
+<h2>Write/Read<a class="headerlink" href="#write-read" title="Permalink to this headline">¶</a></h2>
+<p>Strings are read in or written to from files. This is done with the function
+<code class="docutils literal notranslate"><span class="pre">open()</span></code> and the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code> read only</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code> write only - will write over existing file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> append a file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r+</span></code> read and write</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> binary files</p></li>
+</ul>
+</div>
+<div class="section" id="standard-libary">
+<h2>Standard libary<a class="headerlink" href="#standard-libary" title="Permalink to this headline">¶</a></h2>
+<p>Useful packages in the standard library:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">os</span></code> - using OS dependent functionality</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os.listdir</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os.mkdir</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os.rename</span></code> - rename a dir</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os.remove</span></code> - delete a file</p></li>
+<li><p>path name manipulations</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glob</span></code> (<code class="docutils literal notranslate"><span class="pre">*</span></code>)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>glob.glob(<code class="docutils literal notranslate"><span class="pre">*.txt</span></code>) - pattern matching</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sys</span></code> - system specific information</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sys.platform</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sys.version</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sys.argv</span></code> - command line arguments</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pickle</span></code> - store arbitrary objects to a file</p></li>
+</ul>
+</div>
+<div class="section" id="exception-handling">
+<h2>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline">¶</a></h2>
+<p>Exceptions are raised by errors. There are many different types of
+errors. You can catch an exception like so with <code class="docutils literal notranslate"><span class="pre">try</span></code> &lt;command&gt; and use
+<code class="docutils literal notranslate"><span class="pre">except</span></code> to specify some actions if a certain type of error appears.</p>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A class is a blueprint for creating instances. Instance variables are
+created using a class blueprint and contains data specific for that
+instance.</p></li>
+<li><p>‘Attribute’ - data associated with class</p></li>
+<li><p>‘Method’ - function associated with class</p></li>
+</ul>
+<p>The <cite>__init__</cite> method can be thought of as ‘initialise’. It is a reserved
+method in Python classes and is known as a ‘constructor’ in object oriented
+world. This method is called when an instance is created from the class
+(in fact it is called as soon as memory for the object is allocated)
+and allows the class to ‘initialise’ the attributes. These are inherited
+to the methods inside the class. This means that other functions defined in
+the class have access to these initalised attributes.</p>
+<p>All functions defined in a class must have the ‘self’ parameter first. This
+parameter can actually be called anything, but you should follow convention
+and use ‘self’. It refers to the current instance of the class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fname</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sname</span> <span class="o">=</span> <span class="n">last</span>
+
+    <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To create an instance. You must provide all the arguments of the first
+‘__init__’ method.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">emp1</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s1">&#39;alice&#39;</span><span class="p">,</span><span class="s1">&#39;smith&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>access the attributes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">emp1</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emp1</span><span class="o">.</span><span class="n">sname</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>alice
+smith
+</pre></div>
+</div>
+<p>use the method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">emp1</span><span class="o">.</span><span class="n">method1</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>hello alice
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.005 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-python-py">
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/ce03ebff115161a2726e91d69a8ec7aa/plot_python.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_python.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/6dc0fb65c01840500580c7b4ea36500a/plot_python.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_python.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sphinx-gallery.html" class="btn btn-neutral float-right" title="Sphinx-Gallery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plot_numpy.html" class="btn btn-neutral float-left" title="Numpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Lucy Liu
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
