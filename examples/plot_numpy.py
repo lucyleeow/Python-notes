@@ -130,7 +130,7 @@ np.array([[1,2],[3,4,5]]).shape
 #    * ``.strides`` - discussed below
 #    * ``.shape`` - the dimensions of the array, discussed more below
 #
-# .. image:: https://raw.githubusercontent.com/leriomaggio/numpy-euroscipy/7e308233843ddb6b4fe40a9ff6baf813909bb881/images/ndarray_with_details.png#
+# .. image:: https://raw.githubusercontent.com/leriomaggio/numpy-euroscipy/7e308233843ddb6b4fe40a9ff6baf813909bb881/images/ndarray_with_details.png
 # 
 
 #%%
