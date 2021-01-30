@@ -382,6 +382,32 @@ from functools import partial
 add_five = partial(add_numbers, 5)
 
 #%%
+# Parameters/arguments
+# ====================
+#
+# Ref: `RealPython <https://realpython.com/lessons/positional-only-arguments/>`_
+#
+# Position only parameters (available from Python 3.8) indicated with ``/``.
+
+def my_fun(x, /):
+    return x
+
+# %%
+# All parameters before the ``/`` must be positional only (cannot use keyword).
+# Useful when parameters have natural order but are hard to give good
+# descriptive names to.
+#
+# Keyword only parameters (available from Python 3.0) indicated by ``*``. Any
+# parameter after ``*`` must be specified via keyword.
+
+def headline(text, /, border="~", *, width=50):
+    pass
+
+# %%
+# ``text`` is positional only, ``border`` can be specified with or without
+# keyword and ``width`` must be specified with keyword. Additionally, ``text``
+# is not optional but the other two are.
+#
 # Scripts and modules
 # ******************
 #
