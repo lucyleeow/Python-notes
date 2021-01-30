@@ -4,7 +4,7 @@ Regular expressions
 ###################
 
 Regular expressions with the ``re`` module. Good resource for testing your
-regex is `regex101 <https://regex101.com/>`_ and `pythex 
+regex is `regex101 <https://regex101.com/>`_ and `pythex
 <https://pythex.org/>`_. Great introductory guide at `Python docs
 <https://docs.python.org/3/howto/regex.html>`_.
 """
@@ -12,7 +12,7 @@ regex is `regex101 <https://regex101.com/>`_ and `pythex
 #%%
 # The backslash
 # =============
-# 
+#
 # The backslash is used as an escape or to invoke a special form on 2 different
 # levels - at Python and ``re``. The Python interpreter performs substitutions
 # first (e.g. ``\n`` becomes a newline) before ``re`` sees your string. RE's
@@ -59,16 +59,16 @@ s
 # takes place in computation process (at the start or during a function call),
 # using compiled expressions avoids cache lookup and since the size of the
 # cache is limited, gives more control over what needs to be re-compiled in
-# certain circumstances (ref: `SO 
+# certain circumstances (ref: `SO
 # <https://stackoverflow.com/questions/47268595/when-to-use-re-compile>`_).
-# 
+#
 # Special character meanings
 # ==========================
 #
 # Literal special characters can be matched by using ``\`` to escape or 
 # using ``[]`` to enclose (except for ``]`` - this needs to be escaped
 # within a ``[]`` or put the ``]`` as the first character within the ``[]``).
-# 
+#
 # **Groups**
 #
 # The ASCII equivalent given at the end.
@@ -87,7 +87,7 @@ s
 # * ``\w`` - any alphanumeric character in Unicode database, including ``_``,
 #   ASCII equivalent: ``[a-zA-Z0-9_]``
 # * ``\W`` - any non-alphanumeric character, ASCII equivalent: ``[^a-zA-Z0-9_]``
-# 
+#
 # **Repeating**
 #
 # Refers to the previous character or set (``[]``).
@@ -120,7 +120,7 @@ s
 #   also matches immediately after each newline.
 # * ``$`` Matches the end of the string **or** just before the newline at the
 #   end of the string, and in ``MULTILINE`` mode also matches before a newline.
-#   
+#
 #   * Searching for ``foo.$`` in 'foo1\nfoo2\n' matches ‘foo2’ normally (before 
 #     newline at end of string), but ‘foo1’ in ``MULTILINE``` mode (gives first
 #     match it finds).
@@ -138,7 +138,7 @@ s
 #   that matches only at the beginning or end of a word (indicated by white
 #   space). ``\bclass\b`` will only match the word 'class' when it is a 
 #   word by itself, but not when it part of a longer word.
-# 
+#
 #   * note that this is the worst collision between ``re`` and Python's string
 #     literals. In Python ``\b`` means backspace
 #
@@ -149,7 +149,7 @@ s
 #
 # Compilation flags
 # =================
-# 
+#
 # Modify how your RE works. Available under a long name or a short one-letter
 # form.
 #
@@ -167,7 +167,7 @@ s
 # ========
 #
 # Allow for matching groups within a 'matched string'. Groups are numbered
-# starting with 0 - group 0 is always present and is the whole RE. 
+# starting with 0 - group 0 is always present and is the whole RE.
 #
 # You can refer to a group within a RE using backreferences. ``\1`` will refer
 # to group 1, which must be found at the position of ``\1``. This RE will
@@ -175,7 +175,7 @@ s
 #
 # * ``(...)`` Matches the RE inside the parentheses, and indicates the start
 #   and end of a group. The contents of a group can be:
-# 
+#
 #   * retrieved after a match has been performed
 #   * be matched later in the string with the ``\number`` (described below).
 #
@@ -237,8 +237,8 @@ s
 #
 # * ``match`` matches at start of string
 # * ``search`` searches entire string for match
-# 
-# Both return ``None`` if not succesful and a match object if succesful. 
+#
+# Both return ``None`` if not succesful and a match object if succesful.
 #
 # * ``findall`` looks for all matches, finds all substrings. Returns list
 #   of matching strings.

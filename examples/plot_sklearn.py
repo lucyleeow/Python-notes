@@ -81,7 +81,7 @@ Scikit-learn
 # on your training data and saved) then uses the data and the fitted model to
 # give predictions.
 #
-# ColumnTranformer
+# ColumnTransformer
 # ================
 #
 # This function allows you to perform specific transformations on specific

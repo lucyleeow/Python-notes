@@ -582,8 +582,23 @@ add_five = partial(add_numbers, 5)
 # https://timothybramlett.com/How_to_create_a_Python_Package_with___init__py.html>`_
 # for more details.
 #
+# Installation
+# ============
+#
+# Installation from Github can be done via a number of download protocols, see
+# `here <https://pip.pypa.io/en/stable/reference/pip_install/#git>`_.
+# Options include ``pip install <git+git://git.example.com/MyProject>``
+# (start with `git+` then use the https clone url but replace the https at
+# the start with `git`), ```pip install <https://git.example.com/MyProject>``.
+#
+# Instead of using git you can also use a 'zipball', with
+# ``pip install <https://git.example.com/MyProject/zipball/master>``. This is
+# the clone https url, without ``.git`` at the end and with ``zipball/master``
+# added to the end.
+# See `SO <https://stackoverflow.com/questions/8247605/configuring-so-that-pip-install-can-work-from-github>`_-.
+#
 # Write/Read
-# *************
+# **********
 #
 # Strings are read in or written to from files. This is done with the function
 # ``open()`` and the following arguments:
@@ -933,7 +948,85 @@ class RightPyramid(Square, Triangle):
 
 RightPyramid.__mro__
 
-#%%
+# %%
+# Type and class
+# ==============
+#
+# Ref: `py course <https://www.python-course.eu/classes_and_type.php>`_,
+# `realpython <https://realpython.com/python-metaclasses/>`_
+#
+# ``type()`` can be used in two different ways. Passing an object to type
+# ``type(object)`` returns the class which the object is an instance of:
+
+x = []
+type(x)
+
+# %%
+# If you check the ``type()`` of a class object, you can see that the class
+# ``type`` is returned:
+
+type(type(x))
+
+# %%
+# This is because all class objects are instances of the class ``type``. This
+# is because everything is an object in Python. Classes are objects as well
+# and thus must have a type. The type of x is a list, the type of the class
+# list is 'type'. The type of 'type' is also type! Type is a 'metaclass'
+# and classes are instances of type.
+#
+# Additionally, ``type()`` can be used to create a type object (class object)
+# when you give it 3 arguments:
+# ``type(classname, superclasses, attributes_dict)``:
+#
+# * ``classname`` - name of the class as string
+# * ``superclasses`` - list or tuple of the superclasses of your class
+# * ``attributes_dict`` - dictonary that contains the definitions for the
+#   class body and becomes the ``__dict__`` attribute.
+
+A = type("A", (), {})
+# is the same as
+class A(object):
+    pass
+
+# %%
+# Prior to Python 2.2 type and class were different. Types were built-in
+# objects and classes were user-defined using a ``class`` statement. These
+# could not be mixed, a user-defined class could not extend a built-in type.
+# The old style class does not inherit from a built-in type.
+#
+# The instance of an old style class is 'instance' whereas ``__class__`` of the
+# instance gives the class. Thus instances of old style classes are of a
+# different type than their class. This is because old style classes are
+# implemented with a single built-in type (instance). This type looks at the
+# instances ``__dict__`` and only if it is not present looks up the class
+# hierarchy. Old style classes have simpler method resolution order,
+# are still instances of object. More about the
+# implementaton `here <https://dev.nextthought.com/blog/2018/07/python-2-new-vs-old-classes.html>`_.
+# For new style classes the ``type()`` and ``__class__`` of an instance is the
+# same.
+
+# %%
+# Object and type
+# ---------------
+#
+# Ref `SO <https://stackoverflow.com/questions/22921093/query-on-object-class-type-class-in-python>`_
+#
+# Everything in Python is an object, an instance of some class - including
+# class **objects**. Everything
+# is an instance of the class 'object'. Thus type class is an instance of
+# object. However, every class is an instance of type. Thus the object class is
+# an instance of the class type. This gives circular hierarchy.
+
+print(isinstance(type,object))
+print(isinstance(object,type))
+
+# %%
+# This kind of mutual inheritance is not normally possible but it is the way
+# for these fundamental classes in Python.
+#
+# Built-in or user defined classes are instances of type but are subclasses
+# of object.
+# %%
 # Minxin
 # ======
 #
@@ -994,7 +1087,7 @@ class class2(class1):
 # object representation can be evaluated with ``eval()`` to recreate the
 # object itself.
 #
-# * If ``__str()`` is missing, ``__repr__()`` is used as a fallback. There is
+# * If ``__str__()`` is missing, ``__repr__()`` is used as a fallback. There is
 #   no fallback if ``__repr__()`` is missing.
 # * ``__str__()`` must return a string object whereas ``__repr__()`` can
 #   return any Python expression.
@@ -1115,8 +1208,8 @@ eval(compile('a=2', '<string>', 'exec'))
 # =====
 #
 # Ref: `ruslanspivak <https://ruslanspivak.com/lsbasi-part7/>`_,
-# `basecs <https://medium.com/basecs/grammatically-rooting-oneself-with-parse-trees-ec9daeda7dad>`_
-# `basecs2 <https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff>`_-
+# `basecs <https://medium.com/basecs/grammatically-rooting-oneself-with-parse-trees-ec9daeda7dad>`_,
+# `basecs2 <https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff>`_
 #
 # * data structure composed of 1 or more nodes, connected by edges
 # * has 1 root, the top node
@@ -1191,7 +1284,7 @@ eval(compile('a=2', '<string>', 'exec'))
 #
 # The parser may or may not generate a parse tree, it may go straight to AST,
 # depending on the compiler. Building AST is actually very difficult which is
-# why some parsers decide to build a parse tree first.-
+# why some parsers decide to build a parse tree first.
 #
 # AST
 # ----
