@@ -19,7 +19,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Python notes'
-copyright = '2019, Lucy Liu'
+copyright = '2021, Lucy Liu'
 author = 'Lucy Liu'
 
 # The full version, including alpha/beta/rc tags
@@ -39,7 +39,6 @@ extensions = [
 sphinx_gallery_conf = {
      'examples_dirs': '../examples',   # path to your example scripts
      'gallery_dirs': 'auto_examples',  # path where to save gallery generated examples
-     'expected_failing_examples': ['../examples/plot_python.py']
 }
 
 # Add any paths that contain templates here, relative to this directory.

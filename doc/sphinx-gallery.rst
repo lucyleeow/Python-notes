@@ -1,11 +1,12 @@
+###############
 Sphinx-Gallery
 ###############
 
+************************
 File structure and setup
-*************************
+************************
 
-An example file structure for your project 
-(`ref <https://sphinx-gallery.github.io/getting_started.html>`_)::
+An example file structure for your project::
 
     .
     ├── doc
@@ -23,32 +24,32 @@ An example file structure for your project
 
 
 * The 'doc' directory is the 'source directory' for Sphinx, containing both the
-  ``.rst`` source documents and configuration related files. 
+  ``.rst`` source documents and configuration related files.
   ``sphinx-quickstart`` can be used to set up your source directoy. It creates
-  default versions of the essential files 
+  default versions of the essential files
   (see `ref <http://www.sphinx-doc.org/en/stable/usage/quickstart.html>`_ for
   more details). Four files are created after running ``sphinx-quickstart``:
 
-    * ``conf.py``, which allows you to configure all aspects of how Sphinx and 
+    * ``conf.py``, which allows you to configure all aspects of how Sphinx and
       Sphinx-Gallery reads your sources and builds your documentation.
     * ``index.rst`` is the 'master document', which serves as a welcome page
       and contains the root of the table of contents tree ('toctree').
-    * the ``Makefile`` (for Unix based OSs) and ``make.bat`` (for Windows OS) 
-      allows you to build your docs easily by executing the 'make' command with 
-      the name of the builder e.g. ``make html``. The default source directory 
-      is
-      set to the current working directory and the default build directory 
-      (where the output files are saved) is '_build'. These can be 
+    * the ``Makefile`` (for Unix based OSs) and ``make.bat`` (for Windows OS)
+      allows you to build your docs easily by executing the 'make' command with
+      the name of the builder e.g. ``make html``. The default source directory
+      is.
+      set to the current working directory and the default build directory
+      (where the output files are saved) is '_build'. These can be
       changed by amending the appropriate 'make' file for your OS.
 
 * 'examples' contains the ``.py`` files used by Sphinx-Gallery to build
-  both rST and documentation files. The rST files will be saved to a file 
-  specified in the ``conf.py`` file (see below). An ``index.rst`` will be 
-  created in the root directory of this specified file. The documentation files 
+  both rST and documentation files. The rST files will be saved to a file
+  specified in the ``conf.py`` file (see below). An ``index.rst`` will be
+  created in the root directory of this specified file. The documentation files
   will be stored in the build directory ('_build' by default).
 * 'my_python_module' contains the ``.py`` scripts for your Python module.
   This directory is not required and Sphinx-Gallery can be used for a variety of
-  purposes outside of documenting examples for a package, for example creating a 
+  purposes outside of documenting examples for a package, for example creating a
   website for a Python tutorial.
 
 Examples folder
@@ -66,15 +67,16 @@ This fold must have:
     Below is a gallery of examples
 
 * Example Python scripts. These scripts will be processed when building your
-  documentation. By default, files prefixed with ``plot_`` will be 
+  documentation. By default, files prefixed with ``plot_`` will be
   executed and their outputs captured to incorporate them in the documentation
-  files generated. Files without this prefix will only be parsed and presented 
-  without any output. You can change this default pattern matching in the 
-  ``conf.py`` file. 
+  files generated. Files without this prefix will only be parsed and presented
+  without any output. You can change this default pattern matching in the
+  ``conf.py`` file.
 
+********************************
 Configure and use Sphinx-Gallery
-*********************************
-After installing Sphinx-Gallery, we must enable and configure it to build with 
+********************************
+After installing Sphinx-Gallery, we must enable and configure it to build with
 Sphinx.
 
 First, enable Sphinx-Gallery in the Sphinx conf.py file with::
@@ -87,7 +89,7 @@ First, enable Sphinx-Gallery in the Sphinx conf.py file with::
 This loads Sphinx-Gallery as one of your extensions, the ellipsis ``...``
 represents your other loaded extensions.
 
-Now we need to tell Sphinx-Gallery which folder the example ``.py`` scripts 
+Now we need to tell Sphinx-Gallery which folder the example ``.py`` scripts
 are and which folder the generated rST files should go. These paths should
 be given relative to the source directory ('docs' in our example case)::
 
@@ -99,25 +101,27 @@ be given relative to the source directory ('docs' in our example case)::
 After building your documentation, the 'gallery_dirs',
 'auto_examples' in our example case, will contain the all the ``.rst``
 files generated by Sphinx-Gallery - this includes an ``index.rst`` file for
-each gallery and an ``.rst`` file for each ``.py`` script in the 
-'examples_dirs`, '../examples' in this case.
+each gallery and an ``.rst`` file for each ``.py`` script in the
+``examples_dirs``, '../examples' in this case'.
 
+*****************
 Table of contents
-*******************
+*****************
 
 Files from your ``examples`` folder can be added to the toctree directive in
-the ``index.rst`` file by providing the path to the rST files in the
+the ``index.rst`` file by providing the path to the rST files.
 
+**************************
 Building the documentation
-***************************
+**************************
 
-To build your documentaton, execute the 'make' command with the name of the 
-builder, commonly this will be ``make html``, in the source 
+To build your documentaton, execute the 'make' command with the name of the
+builder, commonly this will be ``make html``, in the source
 directory (``docs`` in our example case). This will:
 
-* use ``.rst`` files in the source directory to build documentation (e.g. 
+* use ``.rst`` files in the source directory to build documentation (e.g.
   HTML) files and save these to the build directory ('./_build' by default).
-* use ``.py`` files in your 'examples_dirs' (``../examples`` in our example 
-  case)' to build ``.rst`` files, saving these to 'gallery_dirs' 
+* use ``.py`` files in your 'examples_dirs' (``../examples`` in our example
+  case)' to build ``.rst`` files, saving these to 'gallery_dirs'
   ('auto_examples' in our example case) and build documentation (e.g. HTML)
   files and save these to the build directory ('./_build' by default).

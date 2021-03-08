@@ -11,7 +11,8 @@ Matplotlib
 # be between 0-1. The inner axes below uses the following non-normalised
 # rect: ``0.5, 2.5, 1.0, 0.3``
 #
-# .. _image:: images/mpl1.png
+# .. image:: ../_static/mpl1.png
 #
-# See `SO <https://stackoverflow.com/questions/14568545/convert-matplotlib-data-units-to-normalized-units>`_ for more.
-
+# See `SO
+# <https://stackoverflow.com/questions/14568545/convert-matplotlib-data-units-to-normalized-units>`_
+# for more.

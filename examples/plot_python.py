@@ -14,6 +14,7 @@ References used: SciPy lecture notes, Python for Data Science.
 # ***************
 # Magic functions
 # ***************
+#
 # These functions are prefixed by ``%``. In certain IDE's the setting
 # ``automagic`` is
 # enabled by default and allows you to omit the ``%`` sign. Useful magic
@@ -322,7 +323,7 @@ print("Global:", locations)
 #
 # What is occuring when you are using a for loop is this:
 #
-# .. image:: images/iterable-vs-iterator.png
+# .. image:: ../_static/iterable-vs-iterator.png
 #
 # *********
 # Functions
@@ -624,7 +625,7 @@ def headline(text, /, border="~", *, width=50):
 # ``pip install <https://git.example.com/MyProject/zipball/master>``. This is
 # the clone https url, without ``.git`` at the end and with ``zipball/master``
 # added to the end.
-# See `SO <https://stackoverflow.com/questions/8247605/configuring-so-that-pip-install-can-work-from-github>`_-.
+# See `SO hugo <https://stackoverflow.com/questions/8247605/configuring-so-that-pip-install-can-work-from-github>`_-.
 #
 # **********
 # Write/Read
@@ -1287,12 +1288,12 @@ eval(compile('a=2', '<string>', 'exec'))
 # not be ambiguous. In other words, one 'expression' should only lead to one
 # parse tree.
 #
-# .. _image:: examples/images/parsetree_01.png
+# .. image:: ../_static/parsetree_01.png
 #
 # Take a look at the difference between a parse tree and an abstract syntax
 # tree (AST):
 #
-# .. _image:: examples/images/ast_01.png
+# .. image:: ../_static/ast_01.png
 #
 # ASTs uses operators/operations as root and interior nodes while operands
 # are children. ASTs do not represent every detail, e.g., no parentheses.
@@ -1308,7 +1309,7 @@ eval(compile('a=2', '<string>', 'exec'))
 # to do to get from the parse tree to the AST. In other cases we may need to
 # do. For example, parentheses may be expressed like this:
 #
-# .. image:: images/ast_paren.jpeg
+# .. image:: ../_static/ast_paren.jpeg
 #   :width: 700
 #
 # This structure is mirrored. The parentheses do not do much once we have our
@@ -1348,15 +1349,15 @@ eval(compile('a=2', '<string>', 'exec'))
 #
 # Each node in an AST contains some data (a token and its value) and pointers:
 #
-# .. image:: examples/images/ast_tree1.jpeg
+# .. image:: ../_static/ast_tree1.jpeg
 #
 # For example here is the AST of a simple equation:
 #
-# .. image:: examples/images/ast_tree2.jpeg
+# .. image:: ../_static/ast_tree2.jpeg
 #
 # Following the first child node/next sibling node points gives this:
 #
-# .. image:: examples/images/ast_tree3.jpeg
+# .. image:: ../_static/ast_tree3.jpeg
 #
 # You can think of the AST as the 'final project' of the front-end of the
 # compiler (technically 'intermediate code representation').

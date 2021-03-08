@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Python notes
-==================================
+============
 
 Created for personal notes on Python for data science and to practice using
 Sphinx-Gallery.
@@ -25,9 +25,7 @@ Sphinx-Gallery.
    :maxdepth: 2
    :caption: PEP8:
 
-   ppep8
-
-
+   pep8
 
 Indices and tables
 ==================

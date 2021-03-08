@@ -183,7 +183,7 @@ def f(x):
 df.apply(f)
 
 #%%
-# To perform an operation on all elements in a df use ``applymap()``.-
+# To perform an operation on all elements in a df use ``applymap()``.
 #
 # *******************
 # Essential functions
