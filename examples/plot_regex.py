@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """
+###################
 Regular expressions
 ###################
 
@@ -10,8 +11,9 @@ regex is `regex101 <https://regex101.com/>`_ and `pythex
 """
 
 #%%
+# *************
 # The backslash
-# =============
+# *************
 #
 # The backslash is used as an escape or to invoke a special form on 2 different
 # levels - at Python and ``re``. The Python interpreter performs substitutions
@@ -40,14 +42,15 @@ s
 # Thus if you need a literal ``\`` in your regex, you need to ``\\`` because
 # the regular expression is ``\\`` (to escape the special meaning in ``re``)
 # but inside a regular Python string literal each ``\`` must be expressed as
-# ``\\`` as we learned above. The solution is to use Pythons raw string 
+# ``\\`` as we learned above. The solution is to use Pythons raw string
 # notation for regular expression patterns - prefix with ``r``. Backslashes are
-# not handled in any special way by Python (i.e. they are note treated 
+# not handled in any special way by Python (i.e. they are note treated
 # differently). ``r'\n'`` is a 2 character string
-# ``\`` followed by ``n``.-
+# ``\`` followed by ``n``.
 #
+# *********
 # Compiling
-# =========
+# *********
 #
 # After using ``re.compile`` to compile a regular expression, all the functions
 # available are available as methods of the resulting object. It is recommended
@@ -62,10 +65,11 @@ s
 # certain circumstances (ref: `SO
 # <https://stackoverflow.com/questions/47268595/when-to-use-re-compile>`_).
 #
+# **************************
 # Special character meanings
-# ==========================
+# **************************
 #
-# Literal special characters can be matched by using ``\`` to escape or 
+# Literal special characters can be matched by using ``\`` to escape or
 # using ``[]`` to enclose (except for ``]`` - this needs to be escaped
 # within a ``[]`` or put the ``]`` as the first character within the ``[]``).
 #
@@ -76,7 +80,7 @@ s
 # * ``[]`` - specifies set of characters to match
 #
 #   * list inidividually or use ``-`` to specify range e.g. ``a-c``
-#   * ``^`` at the start specifies complementing set (everything BUT the 
+#   * ``^`` at the start specifies complementing set (everything BUT the
 #     following characters). ``^`` in any other position does not have special
 #     meaning.
 #
@@ -115,13 +119,13 @@ s
 # **Other**
 #
 # * ``.`` any character except newline, with ``DOTALL``,`S`` flag includes
-#  newline.
+#   newline.
 # * ``^`` (Caret) Matches the start of the string, and in ``MULTILINE`` mode
 #   also matches immediately after each newline.
 # * ``$`` Matches the end of the string **or** just before the newline at the
 #   end of the string, and in ``MULTILINE`` mode also matches before a newline.
 #
-#   * Searching for ``foo.$`` in 'foo1\nfoo2\n' matches ‘foo2’ normally (before 
+#   * Searching for ``foo.$`` in 'foo1\nfoo2\n' matches ‘foo2’ normally (before
 #     newline at end of string), but ‘foo1’ in ``MULTILINE``` mode (gives first
 #     match it finds).
 #   * Searching for a single ``$`` in 'foo\n' will find two
@@ -136,7 +140,7 @@ s
 #   would produce a longer overall match - i.e. NOT greedy.
 # * ``b`` word boundary. Zero-width (does not consume any characters) assertion
 #   that matches only at the beginning or end of a word (indicated by white
-#   space). ``\bclass\b`` will only match the word 'class' when it is a 
+#   space). ``\bclass\b`` will only match the word 'class' when it is a
 #   word by itself, but not when it part of a longer word.
 #
 #   * note that this is the worst collision between ``re`` and Python's string
@@ -147,8 +151,9 @@ s
 #   if the group RE exists, and with no-pattern if it. ``no-pattern``` is
 #   optional and can be omitted.
 #
+# *****************
 # Compilation flags
-# =================
+# *****************
 #
 # Modify how your RE works. Available under a long name or a short one-letter
 # form.
@@ -163,8 +168,9 @@ s
 #   organized more cleanly and understandably. Whitespace is ignored unless
 #   escaped allowing indenting.
 #
+# ********
 # Grouping
-# ========
+# ********
 #
 # Allow for matching groups within a 'matched string'. Groups are numbered
 # starting with 0 - group 0 is always present and is the whole RE.
@@ -195,14 +201,15 @@ s
 # * ``(?:)`` non-capturing group. Matches RE inside but the substring matched
 #   cannot be retrieved.
 # * ``(?P<name>...)`` group can be accessed using 'name'. It can then be
-#  referenced:
+#   referenced:
 #
 #   * in the RE with ``(?P=<name>)`` or ``\1``
 #   * in the match object ``m.group('name')``
 #   * in ``re.sub()``
 #
+# *********************
 # Look ahead assertions
-# =====================
+# *********************
 #
 # * ``(?=...)`` look ahead assertion. Matches if '...' (RE) matches next
 #   (but does not consume any of the string). ``Isaac (?=Asimov)`` will match
@@ -211,8 +218,9 @@ s
 #   match. Does not consume string. For example, ``Isaac (?!Asimov)`` will
 #   match 'Isaac ' only if it’s not followed by 'Asimov'.
 #
+# *********************
 # Look behind assertion
-# =====================
+# *********************
 #
 # * ``(?<=...)`` matches if the current position in the string is preceded by
 #   a match for ``...`` that ends at the current position. The pattern must be of
@@ -229,8 +237,9 @@ s
 #   some fixed length. Patterns which start with negative lookbehind assertions
 #   may match at the beginning of the string being searched.
 #
+# *********
 # Functions
-# =========
+# *********
 #
 # All of these functions are available as a method of an compile object
 # or as ``re.<fun>``.
@@ -242,6 +251,3 @@ s
 #
 # * ``findall`` looks for all matches, finds all substrings. Returns list
 #   of matching strings.
-#
-
-

@@ -21,6 +21,12 @@ Sphinx-Gallery.
 
    sphinx-gallery
 
+.. toctree::
+   :maxdepth: 2
+   :caption: PEP8:
+
+   ppep8
+
 
 
 Indices and tables

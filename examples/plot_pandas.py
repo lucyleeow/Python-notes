@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """
+#######
 pandas
 #######
 
@@ -7,6 +8,7 @@ Library for working with heterogeneous data (not just numerical).
 """
 
 #%%
+# ***************
 # Data structures
 # ***************
 #
@@ -66,7 +68,7 @@ Library for working with heterogeneous data (not just numerical).
 # =============
 #
 # * Index objects hold axis labels and axis names (e.g., name of the column and
-# rows).
+#   rows).
 # * They are immutable, making it safer to share among data structures.
 # * Can contain duplicate labels
 # * Behaves like a set and set logic (intersection, union)
@@ -81,6 +83,7 @@ obj2 = obj.reindex(['a', 'b', 'c', 'd', 'e'])
 obj2
 
 #%%
+# ********
 # Indexing
 # ********
 #
@@ -134,6 +137,7 @@ obj2
 # the xth position or the row label x? To be consistent, data selection is
 # always by row label. Use ``loc`` and ``iloc`` to be more specific.
 #
+# *********************
 # Arthimetic operations
 # *********************
 #
@@ -152,6 +156,7 @@ obj2
 # There are functions with similar arguments for other basic operations
 # (e.g., ``div()``, ``mul()``)
 #
+# ************************************
 # Operations with dataframe and series
 # ************************************
 #
@@ -166,7 +171,7 @@ obj2
 # The ``apply()`` function lets you apply a function to a column of data
 # (default, think of this as applying to the 'rows' of a column) or row of
 # data (``axis=1``). The function can return 1 value or a series of multiple
-# values::
+# values:
 
 import numpy as np
 df = pd.DataFrame(np.random.randn(4, 3), columns=list('bde'),
@@ -180,6 +185,7 @@ df.apply(f)
 #%%
 # To perform an operation on all elements in a df use ``applymap()``.-
 #
+# *******************
 # Essential functions
 # *******************
 #
@@ -193,6 +199,7 @@ obj = pd.Series([7, -5, 7, 4, 2, 0, 4])
 obj.rank() # split ranking for same values
 
 #%%
+# *******************
 # Split apply combine
 # *******************
 #
@@ -213,9 +220,9 @@ obj.rank() # split ranking for same values
 # * To select specific columns use 'indexing'. Returned object will be either
 #   grouped series or grouped df::
 #
-#   df.groupby('key1')['data1']
-#   # note that the above is syntatic sugar for
-#   df['data'].grouby(['key1'])
+#       df.groupby('key1')['data1']
+#       # note that the above is syntatic sugar for
+#       df['data'].grouby(['key1'])
 #
 # * You can groupby using a dictionary (``{'<row label>': '<group>', ...}``.
 #   This can be done with column labels as well. You can include labels that
@@ -230,8 +237,8 @@ obj.rank() # split ranking for same values
 #
 #   * To specify name use
 #     ``.agg([('<col>', <fun name>), ('<col2>', <fun2 name>)])``
-#   * To specify different functions to different columns, us a dictionary
-#     ``.agg({'<col>': <function>})
+#   * To specify different functions to different columns, use a dictionary
+#     ``.agg({'<col>': <function>})``
 #   * Note that common 'aggregation' functions have optimised groupby methods.
 #     If you are using one of these, you must give the function name as as
 #     string. Others should be the function name not as a string.
@@ -293,7 +300,7 @@ iris.groupby('species', group_keys=False).apply(top)
 # Transform
 # =========
 #
-# The ``transfomr()`` function creates a new column. It can either produce
+# The ``transform()`` function creates a new column. It can either produce
 # an object of the same shape as the input group, or a scalar that can be
 # broadcast to the shape.
 
@@ -314,6 +321,7 @@ df.groupby('key').transform(lambda x: x.mean())
 #
 #   normalized = (df['value'] - g.transform('mean')) / g.transform('std')
 #
+# ****************
 # Categorical data
 # ****************
 #
@@ -333,6 +341,7 @@ df.groupby('key').transform(lambda x: x.mean())
 # to specify order. The printed output will have ``<`` signs between the
 # categories to show order.
 #
+# *********
 # Reshaping
 # *********
 #
@@ -398,5 +407,3 @@ df
 #%%
 
 pd.melt(df, ['key'])
-
-# %%

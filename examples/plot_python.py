@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
+######
 Python
-#######
+######
 
 Python is an interpreted language (c.f. compiled) and can be used
 interactively.
@@ -10,8 +11,9 @@ References used: SciPy lecture notes, Python for Data Science.
 """
 
 #%%
+# ***************
 # Magic functions
-# ******************
+# ***************
 # These functions are prefixed by ``%``. In certain IDE's the setting
 # ``automagic`` is
 # enabled by default and allows you to omit the ``%`` sign. Useful magic
@@ -19,8 +21,9 @@ References used: SciPy lecture notes, Python for Data Science.
 # using the timeit module from the standard library and ``debug``, which allows
 # you to enter post-mortem debugging.
 #
+# **********
 # Data types
-# ************
+# **********
 #
 # * numeric
 #
@@ -31,8 +34,10 @@ References used: SciPy lecture notes, Python for Data Science.
 #
 # Type conversion is called 'casting'.
 #
+# **********
 # Containers
 # **********
+#
 # * **Lists** ordered, can have different types, mutable
 #
 #   * ``[-1]`` negative indexing = count from the back
@@ -63,6 +68,26 @@ print(
 #   * checking for a value is much faster c.f. lists as stored as hash table
 #   * valid keys are anything that is hashable (mutable object)
 #
+# Dictionary functions:
+#
+# ``get()`` allows you to get a value from a dictionary, if a key
+# is present and if not present, gives you a default value instead::
+#
+#   value = some_dict.get(key, default_value)
+#
+# ``setdefault`` is used for setting the values in a dictionary using another
+# collection, e.g., a list.
+
+words = ['apple', 'bat', 'bar', 'atom', 'book']
+by_letter = {}
+
+for word in words:
+    letter = word[0] # first letter
+    by_letter.setdefault(letter, [])
+
+by_letter
+
+# %%
 # * **Tuple** immutable list. You can convert any sequence or iterator into a
 #   tuple.
 
@@ -77,14 +102,6 @@ t = (1,2,3)
 a, b, c = t
 
 #%%
-# This is often used in a ``for`` loop:
-
-for a, b, c in t:
-    print(a)
-    print(b)
-    print(c)
-
-#%%
 # The ``*rest`` syntax to select only the start of a tuple. ``rest`` will be a
 # list:
 
@@ -95,6 +112,7 @@ rest
 #%%
 # You can also use this to return multiple values from a function.
 #
+# ******************
 # Sequence functions
 # ******************
 #
@@ -122,28 +140,9 @@ list(zipped)
 #%%
 # It can take an aribitrary number of sequences and will return ``n`` tuples,
 # where ``n`` is the length of the shortest sequence.
-#
-# Dictionary
-# ==========
-#
-# ``get()`` allows you to get a value from a dictionary, if a key
-# is present and if not present, gives you a default value instead::
-#
-#   value = some_dict.get(key, default_value)
-#
-# ``setdefault`` is used for setting the values in a dictionary using another
-# collection, e.g., a list.
-
-words = ['apple', 'bat', 'bar', 'atom', 'book']
-by_letter = {}
-
-for word in words:
-    letter = word[0] # first letter
-    by_letter.setdefault(letter, [])
-
-by_letter
 
 #%%
+# ************************
 # List, dict comprehension
 # ************************
 #
@@ -165,9 +164,9 @@ strings = ['a', 'as', 'bat', 'car', 'dove', 'python']
 loc_mapping = {val : index for index, val in enumerate(strings)}
 loc_mapping
 
-#
+# ********************
 # Mutable vs immutable
-# **********************
+# ********************
 #
 # **Immutable**: string, tuple, int, float, boolean
 # Cannot be altered in place.
@@ -235,7 +234,7 @@ print(id(list1[0]), id(list1[1]), id(list1[2]))
 # This influences when a variable is modified inside a function. There are two
 # ways that arguments (given when calling a function) from a function are
 # passed to the parameters (which exist inside functions) of the function
-# (`ref <https://www.python-course.eu/python3_passing_arguments.php>`_).
+# (`py course <https://www.python-course.eu/python3_passing_arguments.php>`_).
 #
 # * **call/pass by value** - the argument expression (e.g. ``x=2``) is
 #   evaluated. If the expression is a variable (e.g. ``x=var1``) its value will
@@ -277,10 +276,11 @@ side_effects(locations)
 print("Global:", locations)
 
 #%%
+# *******************
 # List implementation
 # *******************
 #
-# Ref: `blog <http://www.laurentluce.com/posts/python-list-implementation/>`_
+# Ref: `blog laurent <http://www.laurentluce.com/posts/python-list-implementation/>`_
 #
 # As suggested above a list is implemented in CPython with a list of pointers
 # to the list elements. When initialising a list memory is allocated for the
@@ -295,6 +295,7 @@ print("Global:", locations)
 # * ``pop()`` removes the last element. If the new size is less than half the
 #   allocated size, then the list is shrunk.
 #
+# ***********************
 # Iterators and iterables
 # ***********************
 #
@@ -323,12 +324,13 @@ print("Global:", locations)
 #
 # .. image:: images/iterable-vs-iterator.png
 #
+# *********
 # Functions
 # *********
 #
 # * When a function encounters a ``return`` statement, it will stop. If it
 #   reaches the end of a function without encountering a ``return`` it will
-#    return ``None``.
+#   return ``None``.
 # * Positional ('required') parameters first, then keyword parameters
 #
 #   * keyword parameters used to specify optional arguments (e.g., ``x=1.5``)
@@ -408,8 +410,9 @@ def headline(text, /, border="~", *, width=50):
 # keyword and ``width`` must be specified with keyword. Additionally, ``text``
 # is not optional but the other two are.
 #
+# *******************
 # Scripts and modules
-# ******************
+# *******************
 #
 # A python script (``.py`` text file) can be executed interactively with
 # ``%run <file name>`` in IPython or ``execfile`` in plain Python
@@ -466,7 +469,7 @@ def headline(text, /, border="~", *, width=50):
 # importing.
 #
 # __main__
-# ==========
+# ========
 #
 # Ref: `CSchafer <https://www.youtube.com/watch?v=sugvnHA7ElY>`_
 #
@@ -479,7 +482,7 @@ def headline(text, /, border="~", *, width=50):
 # if the script is being run directly (and NOT if it is being imported).
 #
 # sys.path
-# =========
+# ========
 #
 # Python looks for modules to import in a number of directories dictated by
 # the list of directories in the ``sys.path`` variable. This list consists of
@@ -623,6 +626,7 @@ def headline(text, /, border="~", *, width=50):
 # added to the end.
 # See `SO <https://stackoverflow.com/questions/8247605/configuring-so-that-pip-install-can-work-from-github>`_-.
 #
+# **********
 # Write/Read
 # **********
 #
@@ -635,8 +639,9 @@ def headline(text, /, border="~", *, width=50):
 # * ``r+`` read and write
 # * ``b`` binary files
 #
+# ***************
 # Standard libary
-# ****************
+# ***************
 #
 # Useful packages in the standard library:
 #
@@ -661,10 +666,11 @@ def headline(text, /, border="~", *, width=50):
 #
 # * ``pickle`` - store arbitrary objects to a file
 #
+# ******************
 # Exception handling
-# ********************
+# ******************
 #
-# Ref: `blog <http://tutors.ics.uci.edu/index.php/79-python-resources/104-try-except>`_
+# Ref: `blog ics <http://tutors.ics.uci.edu/index.php/79-python-resources/104-try-except>`_
 #
 # Exceptions are raised by errors. There are many different types of
 # errors. You can 'catch' an exception with:
@@ -708,10 +714,11 @@ finally:
     pass
 
 #%%
+# ******************
 # Naming conventions
 # ******************
 #
-# Ref: `blog <https://dbader.org/blog/meaning-of-underscores-in-python>`_
+# Ref: `blog dbader <https://dbader.org/blog/meaning-of-underscores-in-python>`_
 #
 # * Single leading ``_`` means that the variable or method is for internal
 #   use only.
@@ -728,8 +735,9 @@ finally:
 #   name is already taken, thus a ``_`` is added to the end to avoid naming
 #   conflict.
 #
+# *******
 # Classes
-# ********
+# *******
 #
 # * A class is a blueprint for creating instances. Instance variables are
 #   created using a class blueprint and contains data specific for that
@@ -790,7 +798,7 @@ emp1.method1('hello')
 # Useful functions to investigate the attributes of a class:
 #
 # * ``getattr()`` - access the attribute of the object
-# * ``hasattr() - check if an attribute exists or not
+# * ``hasattr()`` - check if an attribute exists or not
 # * ``setattr()`` - set an attribute. If it does not exist at all, it would be
 #   created.
 # * ``delattr()`` - delete an attribute.
@@ -1027,7 +1035,8 @@ class A(object):
 # instances ``__dict__`` and only if it is not present looks up the class
 # hierarchy. Old style classes have simpler method resolution order,
 # are still instances of object. More about the
-# implementaton `here <https://dev.nextthought.com/blog/2018/07/python-2-new-vs-old-classes.html>`_.
+# implementaton in `nextthought
+# <https://dev.nextthought.com/blog/2018/07/python-2-new-vs-old-classes.html>`_.
 # For new style classes the ``type()`` and ``__class__`` of an instance is the
 # same.
 
@@ -1053,8 +1062,8 @@ print(isinstance(object,type))
 # Built-in or user defined classes are instances of type but are subclasses
 # of object.
 # %%
-# Minxin
-# ======
+# Mixin
+# =====
 #
 # A mixin is a class that provides methods to other classes but are not
 # considered a base class. The mixin allows you to implement a method to other
@@ -1099,11 +1108,12 @@ class class2(class1):
 # The main reason for name mangling is to prevent code not defined in your
 # class from accessing your attributes.
 #
+# ************
 # repr vs str
 # ************
 #
-# Ref: `blog <https://dbader.org/blog/python-repr-vs-str>`_,
-# `blog2 <https://www.journaldev.com/22460/python-str-repr-functions>`_
+# Ref: `blog dbader2 <https://dbader.org/blog/python-repr-vs-str>`_,
+# `blog journaldev <https://www.journaldev.com/22460/python-str-repr-functions>`_
 #
 # The ``__str__()`` method returns the string representation of the object.
 # It's goal is readability. It is called when ``str()`` is invoked on an object.
@@ -1138,8 +1148,9 @@ class class2(class1):
 #   ``__repr__()`` to represent the objects they contain. Even if you call
 #   ``str()`` on it. e.g. ``str([o])`` will return ``'[__repr__for car]'``
 #
+# ************
 # eval vs exec
-# *************
+# ************
 #
 # Ref: `SO <https://stackoverflow.com/questions/2220699/whats-the-difference-between-eval-exec-and-compile/29456463#29456463>`_
 #
@@ -1230,8 +1241,9 @@ exec(compile('42', '<string>', 'eval')) # returns 42 but ignored by exec
 eval(compile('a=2', '<string>', 'exec'))
 
 #%%
+# *****
 # Trees
-# =====
+# *****
 #
 # Ref: `ruslanspivak <https://ruslanspivak.com/lsbasi-part7/>`_,
 # `basecs <https://medium.com/basecs/grammatically-rooting-oneself-with-parse-trees-ec9daeda7dad>`_,
@@ -1252,7 +1264,7 @@ eval(compile('a=2', '<string>', 'exec'))
 # * height - larges level of any node in the tree
 #
 # Parse tree
-# ----------
+# ==========
 #
 # Also known as, concrete syntax tree, a parse is a tree that represents the
 # syntatic structure of a language structure according to the grammar
@@ -1275,12 +1287,12 @@ eval(compile('a=2', '<string>', 'exec'))
 # not be ambiguous. In other words, one 'expression' should only lead to one
 # parse tree.
 #
-# .. _image:: https://ruslanspivak.com/lsbasi-part7/lsbasi_part7_parsetree_01.png
+# .. _image:: examples/images/parsetree_01.png
 #
 # Take a look at the difference between a parse tree and an abstract syntax
 # tree (AST):
 #
-# .. _image:: https://ruslanspivak.com/lsbasi-part7/lsbasi_part7_ast_01.png
+# .. _image:: examples/images/ast_01.png
 #
 # ASTs uses operators/operations as root and interior nodes while operands
 # are children. ASTs do not represent every detail, e.g., no parentheses.
@@ -1313,9 +1325,9 @@ eval(compile('a=2', '<string>', 'exec'))
 # why some parsers decide to build a parse tree first.
 #
 # AST
-# ----
+# ===
 #
-# Ref: `Blog <https://www.mattlayman.com/blog/2018/decipher-python-ast/>`_
+# Ref: `blog mattlayman <https://www.mattlayman.com/blog/2018/decipher-python-ast/>`_
 #
 # Your parser is performing these tasks:
 #
@@ -1336,15 +1348,15 @@ eval(compile('a=2', '<string>', 'exec'))
 #
 # Each node in an AST contains some data (a token and its value) and pointers:
 #
-# .. image:: https://miro.medium.com/max/2035/1*NO_p9739sX6Tf-ESRkSKaw.jpeg
+# .. image:: examples/images/ast_tree1.jpeg
 #
 # For example here is the AST of a simple equation:
 #
-# .. image:: https://miro.medium.com/max/1920/1*T0Zo8ZLDDm0m0fSmmkj7wA.jpeg
+# .. image:: examples/images/ast_tree2.jpeg
 #
 # Following the first child node/next sibling node points gives this:
 #
-# .. image:: https://miro.medium.com/max/1901/1*0n73V3Ld0e-nTmZKGw3OpQ.jpeg
+# .. image:: examples/images/ast_tree3.jpeg
 #
 # You can think of the AST as the 'final project' of the front-end of the
 # compiler (technically 'intermediate code representation').
@@ -1352,7 +1364,7 @@ eval(compile('a=2', '<string>', 'exec'))
 # Used for modifying source code and dynamic code creation, as it is often
 # easier to deal with tree of nodes rather than lines of text.
 #
-# For more see `blog <https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff>`_
+# For more see `blog basecs <https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff>`_
 # and `AST explorer <https://astexplorer.net/>`_ to interactively explore
 # AST of any code you input.
 #
@@ -1423,5 +1435,5 @@ ast.Module(body=[
 # (though difficult to understand) guide on the functions and methods of
 # ast.
 #
-# `Blog <https://tobiaskohn.ch/index.php/2018/07/30/transformations-in-python/>`_
+# `Blog tobiaskohn <https://tobiaskohn.ch/index.php/2018/07/30/transformations-in-python/>`_
 # goes through ast in Python well.

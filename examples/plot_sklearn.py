@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+############
 Scikit-learn
-###############
-
+############
 """
 
 #%%
+# ********************
 # Preprocessor methods
 # ********************
 #
@@ -41,6 +42,7 @@ Scikit-learn
 # moment ``OneHotEncoder()`` has a ``handle_unknown`` parameter,
 # ``OrdinalEncoder()`` does not.
 #
+# **********************************
 # Writing your own transformer class
 # **********************************
 #
@@ -61,6 +63,7 @@ Scikit-learn
 # for free. ``TransformerMixin`` allows you to get ``fit_transform`` for free
 # when we define ``fit`` and ``transform``.
 #
+# *********
 # Pipelines
 # *********
 #
@@ -82,7 +85,7 @@ Scikit-learn
 # give predictions.
 #
 # ColumnTransformer
-# ================
+# =================
 #
 # This function allows you to perform specific transformations on specific
 # columns. The output is concatenated together at the end. For each step in the
@@ -97,8 +100,3 @@ Scikit-learn
 # you wanted to then transform columns from the new merged dataset, you would
 # need to have a second ``ColumnTransformer`` within the first
 # ``CoumnTransformer``.
-#
-#
-#
-
-# %%
