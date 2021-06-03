@@ -296,35 +296,6 @@ print("Global:", locations)
 # * ``pop()`` removes the last element. If the new size is less than half the
 #   allocated size, then the list is shrunk.
 #
-# ***********************
-# Iterators and iterables
-# ***********************
-#
-# Ref: `nvie <https://nvie.com/posts/iterators-vs-generators/>`_
-#
-# Containers (e.g., list, set, dict, tuple, str) are:
-#
-# * Data structures.
-# * Support membership tests - ask whether it contains a certain element
-# * Typically hold all values in memory
-# * Not all containers are iterable
-#
-# Iterables (e.g., lists, generators, files, tuples, dicts, str)
-#
-# * Essentially means it can be looped over
-# * Technically - requires the dunder method ``__iter__()`` and can return
-#   an ``iterator``
-#
-# Iterator
-#
-# * Helper object that will produce the next value when you call `next()`
-# * It knows how to compute the next value because it holds an internal state.
-#   Every call to next() changes the state and produces a result.
-#
-# What is occuring when you are using a for loop is this:
-#
-# .. image:: ../_static/iterable-vs-iterator.png
-#
 # *********
 # Functions
 # *********
@@ -509,7 +480,7 @@ finally:
 #   use only.
 #
 #   * This affects how ``from my_module import *`` works. Python will not
-#     import names with a leanding ``_``.
+#     import names with a leading ``_``.
 #
 # * Dunder (double underscore) e.g.: ``__name__`` is reserved for special use
 #   in the language. Often referred to as *magic methods*. These are not
