@@ -150,12 +150,11 @@ Top down and bottom up
 If you import the top package (and the `__init__` file does not say to
 import the sub package), any subpackages will not be imported.
 E.g., in the init file you have `import mod1`, then you can do
- `import package` then use `package.mod1.fun()`.
-Also any modules (.py files) will not be imported (if it does not specify
-it in the `__init__` file).
+`import package` then use `package.mod1.fun()`. Also any modules (.py files)
+will not be imported (if it does not specify it in the `__init__` file).
 
 If you import a function from a subpackage, the top package and all
-sub package will all be imported.
+sub packages will all be imported.
 
 __main__
 ========
@@ -689,12 +688,9 @@ install vs develop
 
 * install - copies code to `site-packages`, this means that if you change
   the code you will need to install again
-
   * equivalent to `pip install`
-
 * develop - creates link to source code, a special `.egg-link` file in
-`site-packages`
-
+  `site-packages`
   * equivalent to `pip install -e`
 
 This is where `pip` and `conda` come in. They will run
@@ -730,7 +726,7 @@ look for `__main___.py` and run that.
 
 * Cannot install from local file
 * Will check all the dependencies and update any that are not the latest
-version, as well as install ones you do not have
+  version, as well as install ones you do not have
 
 You can get problems if you install the same package with pip and conda.
 `conda install <packagename>` will look in the default channel (this is just
@@ -773,12 +769,14 @@ Conda vs pip
   | Not limited to Python (can include C++, R etc). | Only Python.                                            |
   +-------------------------------------------------+---------------------------------------------------------+
   | Can create isolated environments.               | Depends on other tools like venv and                    |
-  |                                                 | virtualenv to create environments.                      |                |
+  |                                                 | virtualenv to create environments.                      |
   +-------------------------------------------------+---------------------------------------------------------+
   | Over 1,500 packages available.                  | Over 150,000 packages available.                        |
   +-------------------------------------------------+---------------------------------------------------------+
 
-pip Deals with dependencies in recursive, serial
+Dependency resolution:
+
+pip deals with dependencies in recursive, serial
 loop - does not check if dependencies of ALL packages have been met.
 Packages installed earlier may have incompatible dependency versions
 relative to packages installed later.

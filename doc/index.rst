@@ -6,26 +6,28 @@
 Python notes
 ============
 
-Created for personal notes on Python for data science and to practice using
-Sphinx-Gallery.
+Created for personal notes on Python for data science.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Python notes:
+   :caption: Python:
 
-   auto_examples/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Sphinx-Gallery:
-
-   sphinx-gallery
-
-.. toctree::
-   :maxdepth: 2
-   :caption: PEP8:
-
+   auto_examples/plot_python
+   auto_examples/iter
+   packages
+   classes
+   auto_examples/plot_eval
+   regex
    pep8
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Data science:
+
+   auto_examples/numpy
+   auto_examples/pandas
+   auto_examples/sklearn
+   auto_examples/matplotlib
 
 Indices and tables
 ==================
