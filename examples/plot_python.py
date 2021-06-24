@@ -183,3 +183,62 @@ finally:
 # * containers (e.g. dict and list) will always use the result of
 #   ``__repr__()`` to represent the objects they contain. Even if you call
 #   ``str()`` on it. e.g. ``str([o])`` will return ``'[__repr__for car]'``
+#
+# *******
+# Logging
+# *******
+#
+# * ``logging`` part of standard library
+#   * Note uses camelCase for historic reasons, when it was decided to add to
+#     the standard library was already adopted and changing to meet PEP8 would
+#     have broken backwards compatibility.
+#
+# The 4 standard levels, increasing in severity:
+#
+# 1. DEBUG
+# 2. INFO
+# 3. WARNING
+# 4. ERROR
+# 5. CRITICAL
+#
+# The default logger is called 'root'. By default only logs at DEBUG or higher
+# level are logged.
+#
+# ``basicConfig`` can be used to set:
+#
+# * ``level`` - lowest level to log
+# * ``filename`` - file, if you want to log to file instead of console
+# * ``filemode`` - mode to open ``filename``, if 'w', new logs will overwritte
+#   old
+# * ``format`` - format of the log, e.g. '%(asctime)s - %(message)s'
+#
+# This function can only be called once. The logging functions (``debug`` to
+# ``critical``) call ``basicConfig`` without arguments if it has not been
+# called before. This means you cannot call ``basicConfig``.
+#
+# Capturing stack traces
+# ======================
+#
+# Stack traces can be captured too::
+#
+#    try:
+#       c = a / b
+#   except Exception as e:
+#       logging.error("Exception occurred", exc_info=True)
+#
+# another way to do this is to use the ``logging.exception`` function. It
+# logs at error level and always gives the exception information.
+#
+#   try:
+#       c = a / b
+#   except Exception as e:
+#       logging.exception("Exception occurred")
+#
+# Logging classes
+# ===============
+#
+# The default logger is 'root', but you can and should define your own logger
+# by creating an object of the ``Logger`` class. ``logging.getLogger(name)``
+# instantiates an object of the ``Logger`` class. Calling it several times
+# with the same name will return a reference to the same object. This saves
+# us from passing the logger object around to different parts that need it.-
