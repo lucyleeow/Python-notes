@@ -2,6 +2,7 @@
 Packages
 ########
 
+*******************
 Scripts and modules
 *******************
 
@@ -32,6 +33,9 @@ Modules can be defined in 3 ways:
 * written in C and loaded dynamically at runtime (e.g.: regular expression
   module `re`)
 * built-in module intrinsically included in interpreter
+
+Importing
+=========
 
 All accessed the same way, with `import`.
 
@@ -105,6 +109,47 @@ to the importer.
 `import package` does not place it’s modules in the local namespace, i.e.
 following with `package.module` will return you attribute not found error.
 
+Import from outside dir
+-----------------------
+
+ref: `blog finxter <https://blog.finxter.com/python-how-to-import-modules-from-another-folder/>`_
+
+If you have scripts in directories (not a package), you will not be able to
+import scripts outside of the cwd (which is included in ``sys.path``)
+automatically. There are a few options:
+
+* Add the path of the file you wish to import to ``sys.path``
+  * ``sys.path.append()`` - adds to end
+  * ``sys.path.insert()`` - adds to start
+* Use ``Importlib``::
+
+  import importlib.util
+  spec = importlib.util.spec_from_file_location("file_2", '/.../application/app/folder')
+  lib = importlib.util.module_from_spec(spec)
+  spec.loader.exec_module(foo)
+  lib.function()
+
+* Add ``__init__.py`` to the directory. In the example below, from in the same
+  directory that ``src`` is in, you will be able to run
+  ``from src.script1 import fun``. This is beacuse the init file only works if
+  the directory is already in ``sys.path``. Note you would also be able to
+  import from ``module1`` and ``module2`` due to the ``__init__.py`` file. The
+  init file tells the Python interpreter to treat directories as packages,
+  telling it what can be imported.
+
+.. code-block:: none
+
+  ├── src
+  │   ├── __init__.py
+  │   ├── script1.py
+  │   └── module1
+  |       ├── __init__.py
+  |       └── mod2_script.py
+  |
+  └── module2
+      ├── __init__.py
+      └── module_script.py
+
 Pycache
 =======
 
@@ -126,7 +171,7 @@ importing it) it is loaded under the module name ``__main__``. There is
 another difference, is that no ``.pyc`` file will be created, like with
 importing.
 
-Importing a package also puts a ‘pycache’ file in the package you imported.
+Importing a package also puts a 'pycache' file in the package you imported.
 There will basically be a compiled version of your package in this file -
 this means that if your __init__ file says to load a certain module (.py)
 file, a compiled version of that file will be in the pycache file. It will
@@ -267,11 +312,19 @@ References: `Chris Yeh <https://chrisyeh96.github.io/2017/08/08/definitive-guide
 `ASPP github <https://github.com/aspp-apac/2019-data-tidying-and-visualisation>`_,
 `realpython <https://realpython.com/pypi-publish-python-package/>`_,
 `common problems <https://jwodder.github.io/kbits/posts/pypkg-mistakes/#top-level-tests-directory-in-wheel>`_
+`pydocs <https://docs.python.org/3/reference/import.html#regular-packages>`_
 
 Package is a directory containing many modules (collection of scripts). A
-special file named '__init__.py' tells python that the directory is a package
+special file named ``__init__.py`` tells python that the directory is a package
 from which modules can be imported. From python 3.2 onwards, the
-'__init__.py' file is actually required anymore.
+``__init__.py`` file is actually required anymore.
+
+With ``__init__.py`` you have a 'regular package' - when imported the init file
+is executed, any objects defined are bound to the package's namespace. Without
+the ``__init__.py`` file you have a 'namespace package' - composed of various
+portions, each portion contributes a subpackage to the parent package and can
+portions can reside in different locations in the file system. E.g.,
+'parent/one' does not need to be located next to 'parent/two'.
 
 The purpose of a package is to group modules (``.py`` files) together. The
 main benefit is that you can use relative imports to import from other
@@ -351,6 +404,7 @@ When python interpreter reads a source file it:
   `__name__` will be the name of your module, thus it executes all of the
   code in the file.
 
+*********
 Packaging
 *********
 
