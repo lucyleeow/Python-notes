@@ -35,6 +35,47 @@ References used: SciPy lecture notes, Python for Data Science.
 #
 # Type conversion is called 'casting'.
 #
+# Numbers
+# =======
+#
+# Exponent operator ``**`` gives you an integer:
+
+10 ** 400 == 10 ** 500
+
+# %%
+# The scientific notiation ``e`` gives you a float:
+
+1e400 == 1e500
+
+# %%
+# This returns ``True`` because both numbers are above the floating point
+# range. Integer numbers start off as a size native to your system and
+# automatically become big integers when needed. They will use as many digits
+# as required to represent the number, up to your whole system! For floating
+# point, there is a max, for float64, is about 1e308. Numbers above the
+# floating point range become ``inf``. The min for float64 is about 1e-308.
+# As you go smaller you loose significant figures, until you just get 0:
+
+import numpy as np
+
+print(1e-308 / np.pi)
+print(1e-308 / np.pi / 1e10)
+print(1e-308 / np.pi / 1e16)
+
+# %%
+# Small numbers outside of floating point range are called 'denormals'. A float
+# is represented by a exponent part and a value part (like scientific
+# notation). For small numbers they have the smallest available exponent. For
+# the value part, floats would usually start with an implicit 1 but denormals
+# start with 0's there instead, so they are only using the lower significant
+# bits. There is a performance impact when calculating with denormal numbers.
+# If handled in hardware, not so bad ~2x, doing it in micro-code ~100x, if
+# handled by the OS can be up to 1000x. In new CPUs it is 2-50x.
+#
+# To avoid performance impact, you can set an option (e.g., in numpy ot C) to
+# make all denormals to be 0 and calculations that result in denormal should
+# give 0 instead.
+#
 # **********
 # Write/Read
 # **********
@@ -241,4 +282,4 @@ finally:
 # by creating an object of the ``Logger`` class. ``logging.getLogger(name)``
 # instantiates an object of the ``Logger`` class. Calling it several times
 # with the same name will return a reference to the same object. This saves
-# us from passing the logger object around to different parts that need it.-
+# us from passing the logger object around to different parts that need it.
