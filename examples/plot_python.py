@@ -22,6 +22,55 @@ References used: SciPy lecture notes, Python for Data Science.
 # using the timeit module from the standard library and ``debug``, which allows
 # you to enter post-mortem debugging.
 #
+# ***************
+# Running scripts
+# ***************
+#
+# Ref: `SO-01 <https://stackoverflow.com/questions/7610001/what-is-the-purpose-of-the-m-switch>`_
+#
+# (See packages for more information on modules)
+#
+# You can run a python script in bash via ``python <script.py>`. There is
+# a ``-m`` flag which essentially means execute Python scripts from the
+# command line using modulenames rather than filenames. It does a few things:
+#
+# * allows modules (/scipts) to be located using the Python module namespace
+#   e.g., Python interpreters are able to convert module names to filenames
+#   following some well-defined rules. These rules hinge on the ``sys.path``
+#   variable. This is useful e.g., if you do not know the filename for a module,
+#   as may occur for standard libraries. The following are equivalent:
+#    ``python <filename> <args>`` and
+#   ``python -m <modulename> <args>``
+# * means that you can execute a local package containing relative or
+#   absolute paths, without installing it (otherwise the package can only
+#   contain absolute paths)
+#
+# Detailed comparisons:
+#
+# Module execution via import statement (i.e., import <modulename>):
+#
+# * sys.path is not modified in any way
+# * __name__ is set to the absolute form of <modulename>
+# * __package__ is set to the immediate parent package in <modulename>
+# * __init__.py is evaluated for all packages (including its own for package modules)
+# * __main__.py is not evaluated for package modules; the code is evaluated for code modules
+#
+# Module execution via command line with filename (i.e., python <filename>):
+#
+# * sys.path is modified to include the final directory in <filename>
+# * __name__ is set to '__main__'
+# * __package__ is set to None
+# * __init__.py is not evaluated for any package (including its own for package modules)
+# * __main__.py is evaluated for package modules; the code is evaluated for code modules.
+#
+# Module execution via command line with modulename (i.e., python -m <modulename>):
+#
+# * sys.path is modified to include the current directory
+# * __name__ is set to '__main__'
+# * __package__ is set to the immediate parent package in <modulename>
+# * __init__.py is evaluated for all packages (including its own for package modules)
+# * __main__.py is evaluated for package modules; the code is evaluated for code modules
+#
 # **********
 # Data types
 # **********

@@ -34,6 +34,17 @@ Modules can be defined in 3 ways:
   module `re`)
 * built-in module intrinsically included in interpreter
 
+Technically, there are two kinds of modules, code module (a .py file as
+described above) and package module, a directory that contains other modules
+(which can be code or package modules). The most common type of package
+module is a directory with an ``__init__.py`` file.
+
+When a code module is executed
+When a package module is executed via ``python <dir_name>``, the
+``<dir_name>/__main__.py`` file will be executed. If it is executed via
+``import <module_name>``, only the package module's ``__init__.py`` will
+be executed.
+
 Importing
 =========
 
